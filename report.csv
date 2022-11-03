@@ -1,0 +1,37 @@
+first_name,last_name,country,city,bdate,sex
+Alexander,Goynik,Russia,<Город не указан>,25.5,Муж.
+Alexey,Izbyshev,Russia,Tomsk,10.5.2001,Муж.
+Anastasia,Bryntseva,Russia,Seversk,28.7,Жен.
+Anastasia,Lavrinova,<Страна не указана>,<Город не указан>,21.11.1998,Жен.
+Anastasia,Lobova,Russia,Tomsk,9.7.1986,Жен.
+Antosha,Chikov,Russia,Seversk,27.11.2001,Муж.
+Anya,Platonova,Russia,Seversk,8.2.2002,Жен.
+Artemy,Sikora,Russia,Seversk,3.1.2002,Муж.
+Delek,Korobok,<Страна не указана>,<Город не указан>,11.4.2002,Жен.
+Denis,Vorobyev,Russia,Seversk,4.12.2001,Муж.
+Dima,Shafeev,Russia,Tomsk,16.4,Муж.
+Dmitry,Tukhvataev,Russia,Seversk,11.9.1969,Муж.
+Ilya,Starikov,Russia,<Город не указан>,<Дата не указана>,Муж.
+Ivan,Alexeev,Russia,Seversk,17.5,Муж.
+Ivan,Zarembo,USA,New York City,11.6.2000,Муж.
+Maxim,Chernov,Russia,Seversk,<Дата не указана>,Муж.
+Maxim,Safronov,<Страна не указана>,<Город не указан>,<Дата не указана>,Муж.
+Maxim,Tarazanov,Russia,Seversk,<Дата не указана>,Муж.
+Nikita,Krotov,Russia,Seversk,23.8.2002,Муж.
+Oleg,Solovyov,<Страна не указана>,<Город не указан>,<Дата не указана>,Муж.
+Pavel,Nesterov,Russia,Tomsk,5.12.2001,Муж.
+Pavel,Nesterov,Russia,Tomsk,5.12,Муж.
+Philip,Serbin,Russia,<Город не указан>,15.5.2006,Муж.
+Sanya,Davidenko,Russia,<Город не указан>,3.4,Муж.
+Sergey,Borisov,<Страна не указана>,<Город не указан>,26.9,Муж.
+Sergey,Kochanov,Russia,Seversk,<Дата не указана>,Муж.
+Sergey,Pachin,Russia,Seversk,21.9,Муж.
+Sergey,Redozubov,Russia,Seversk,13.9.2002,Муж.
+Vadim,Lebedkin,<Страна не указана>,<Город не указан>,28.5.2002,Муж.
+Valeria,Pochebyt,Russia,Seversk,13.11,Жен.
+Veronika,Kalmaeva,Russia,Seversk,12.12.2000,Жен.
+Veronika,Malysheva,Russia,Seversk,2.11,Жен.
+Vitaly,Shitikov,Russia,Seversk,22.3,Муж.
+Vlad,Klyaus,<Страна не указана>,<Город не указан>,4.10.2002,Муж.
+Vyacheslav,Tarazanov,Russia,Tomsk,26.11.2001,Муж.
+Yuri,Vyakovlev,Russia,Seversk,14.9.1962,Муж.

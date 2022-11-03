@@ -1,5 +1,4 @@
 import csv
-import pprint
 import requests
 
 token = input("Введите авторизационный токен: ")

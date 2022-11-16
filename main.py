@@ -1,14 +1,32 @@
 import csv
 import pprint
 import requests
+import argparse
 
-token = input("Введите авторизационный токен: ")
-user_id = input("Введите ID пользователя: ")
+parser = argparse.ArgumentParser(
+                    prog = 'Find the friends',
+                    description = 'This program allows you to get all the information about the users friends from '
+                                  'the VKontakte messenger, and also generates a report on the data received.',
+                    epilog = 'Enjoy using it')
+
+token = parser.add_argument("-t", "--token",
+                            action = 'store',
+                            help = 'Enter token')
+
+user_id = parser.add_argument("-uid", "--user-id",
+                              action = 'store',
+                              help = 'Enter user id')
+
+file_name = parser.add_argument("-fn", "--file-name",
+                                action = 'store',
+                                help = 'Enter file name',
+                                type = str)
+
+args = parser.parse_args()
 
 def friends(token, user_id):
-    token = token
+
     version = 5.131
-    user_id = user_id
 
     response = requests.get('https://api.vk.com/method/friends.get',
                             params={
@@ -23,8 +41,9 @@ def friends(token, user_id):
     friends = response.json()['response']['items']
     return friends
 
-def file_writer(friends):
-    with open('report.csv', 'w') as file:
+
+def file_writer(friends, file_name):
+    with open(f"{file_name} .csv", 'w') as file:
         data = csv.writer(file)
         data.writerow((
             'first_name',
@@ -79,7 +98,7 @@ def file_writer(friends):
                 bdate,
                 sex))
 
-friend_list = friends(token, user_id)
-file_writer(friend_list)
+friend_list = friends(args.token, args.user_id)
+file_writer(friend_list, args.file_name)
 
 print('Отчёт сформирован')

@@ -1,28 +1,33 @@
 import csv
-import pprint
 import requests
 import argparse
 
 parser = argparse.ArgumentParser(
-                    prog = 'Find the friends',
-                    description = 'This program allows you to get all the information about the users friends from '
-                                  'the VKontakte messenger, and also generates a report on the data received.',
-                    epilog = 'Enjoy using it')
+    prog='Find the friends',
+    description='This program allows you to get all the information about the users friends from '
+                'the VKontakte messenger, and also generates a report on the data received.',
+    epilog='Enjoy using it')
 
 token = parser.add_argument("-t", "--token",
-                            action = 'store',
-                            help = 'Enter token')
+                            action='store',
+                            help='1. Токен, обязательный')
 
 user_id = parser.add_argument("-uid", "--user-id",
-                              action = 'store',
-                              help = 'Enter user id')
+                              action='store',
+                              help='2. Id пользователя, обязательный')
 
 file_name = parser.add_argument("-fn", "--file-name",
-                                action = 'store',
-                                help = 'Enter file name',
-                                type = str)
+                                action='store',
+                                help='3. Имя файла, обязательный',
+                                type=str)
+
+form = parser.add_argument("-form", "--file-format",
+                           help='4. Формат отчёта, необязательный. Допустимые форматы: csv, tsv, json.'
+                                ' Стандартный формат - csv.',
+                           default = "csv")
 
 args = parser.parse_args()
+
 
 def friends(token, user_id):
 
@@ -42,8 +47,8 @@ def friends(token, user_id):
     return friends
 
 
-def file_writer(friends, file_name):
-    with open(f"{file_name} .csv", 'w') as file:
+def file_writer(friends, file_name, format):
+    with open(f"{file_name}.{format}", 'w') as file:
         data = csv.writer(file)
         data.writerow((
             'first_name',
@@ -98,7 +103,28 @@ def file_writer(friends, file_name):
                 bdate,
                 sex))
 
-friend_list = friends(args.token, args.user_id)
-file_writer(friend_list, args.file_name)
 
-print('Отчёт сформирован')
+try:
+    friend_list = friends(args.token, args.user_id)
+
+    if args.file_format == "tsv":
+
+        file_writer(friend_list, args.file_name, "tsv")
+
+    elif args.file_format == "json":
+
+        file_writer(friend_list, args.file_name, "json")
+
+    elif args.file_format == csv:
+
+        file_writer(friend_list, args.file_name, "csv")
+
+    else:
+
+        print('Неверный формат файла. Отчёт будет сформирован в стандартном формате.')
+
+    print('Отчёт сформирован.')
+
+except:
+
+    print('Неверно указаны аргусенты. Используйте "-h" или "--help".')

@@ -4,8 +4,10 @@ import argparse
 
 parser = argparse.ArgumentParser(
     prog='Find the friends',
-    description='This program allows you to get all the information about the users friends from '
-                'the VKontakte messenger, and also generates a report on the data received.',
+    description='Для того, чтобы сформировать отчёт нужно использовать access token и ID пользователя,'
+                ' у которого будем брать список друзей. Access token можно получить создав приложение в вк или'
+                'перейдя по ссылке https://vkhost.github.io, и выбрав приложение vk.com. Id пользователя '
+                'можно взять с личного профиля вконтакте или же найти в настройках профиля.',
     epilog='Enjoy using it')
 
 token = parser.add_argument("-t", "--token",

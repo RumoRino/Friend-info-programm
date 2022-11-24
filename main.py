@@ -116,22 +116,26 @@ try:
 
     if args.file_format == "tsv":
 
-        file_writer(friend_list, args.file_name, "tsv")
+        print('Данный формат фала пока не поддерживается')
+        # file_writer(friend_list, args.file_name, "tsv")
+        # print('Отчёт сформирован')
 
     elif args.file_format == "json":
 
-        file_writer(friend_list, args.file_name, "json")
+        print('Данный формат фала пока не поддерживается')
+        # file_writer(friend_list, args.file_name, "json")
+        # print('Отчёт сформирован')
 
     elif args.file_format == csv:
 
         file_writer(friend_list, args.file_name, "csv")
+        print('Отчёт сформирован')
 
     else:
 
         print('Неверный формат файла. Отчёт будет сформирован в стандартном формате.')
-
-    print('Отчёт сформирован')
+        file_writer(friend_list, args.file_name, "csv")
 
 except:
 
-    print('Неверно указаны аргмсенты. Используйте "-h" или "--help"')
+    print('Неверно указаны аргументы. Используйте "-h" или "--help"')

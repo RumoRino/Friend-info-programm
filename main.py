@@ -126,7 +126,7 @@ try:
         # file_writer(friend_list, args.file_name, "json")
         # print('Отчёт сформирован')
 
-    elif args.file_format == csv:
+    elif args.file_format == "csv":
 
         file_writer(friend_list, args.file_name, "csv")
         print('Отчёт сформирован')

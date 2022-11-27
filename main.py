@@ -1,4 +1,5 @@
 import csv
+import json
 import requests
 import argparse
 
@@ -53,8 +54,13 @@ def friends(token, user_id):
     friends = response.json()['response']['items']
     return friends
 
+def file_writer_json(friends, file_name, format):
+    jsonFriends = json.dumps(friends)
+    jsonFriends = json.loads(str(jsonFriends))
+    with open(f"{file_name}.{format}", 'w') as file:
+        json.dump(jsonFriends, file, indent = 4)
 
-def file_writer(friends, file_name, format):
+def file_writer_csv(friends, file_name, format):
     with open(f"{file_name}.{format}", 'w') as file:
         data = csv.writer(file)
         data.writerow((
@@ -111,31 +117,30 @@ def file_writer(friends, file_name, format):
                 sex))
 
 
-try:
-    friend_list = friends(args.token, args.user_id)
+# try:
+friend_list = friends(args.token, args.user_id)
 
-    if args.file_format == "tsv":
+if args.file_format == "tsv":
 
-        print('Данный формат фала пока не поддерживается')
-        # file_writer(friend_list, args.file_name, "tsv")
-        # print('Отчёт сформирован')
+    print('Данный формат фала пока не поддерживается')
+    # file_writer(friend_list, args.file_name, "tsv")
+    # print('Отчёт сформирован')
 
-    elif args.file_format == "json":
+elif args.file_format == "json":
 
-        print('Данный формат фала пока не поддерживается')
-        # file_writer(friend_list, args.file_name, "json")
-        # print('Отчёт сформирован')
+    file_writer_json(friend_list, args.file_name, "json")
+    print('Отчёт сформирован')
 
-    elif args.file_format == "csv":
+elif args.file_format == "csv":
 
-        file_writer(friend_list, args.file_name, "csv")
-        print('Отчёт сформирован')
+    file_writer_csv(friend_list, args.file_name, "csv")
+    print('Отчёт сформирован')
 
-    else:
+else:
 
-        print('Неверный формат файла. Отчёт будет сформирован в стандартном формате.')
-        file_writer(friend_list, args.file_name, "csv")
+    print('Неверный формат файла. Отчёт будет сформирован в стандартном формате.')
+    file_writer_csv(friend_list, args.file_name, "csv")
 
-except:
-
-    print('Неверно указаны аргументы. Используйте "-h" или "--help"')
+# except:
+#
+#     print('Неверно указаны аргументы. Используйте "-h" или "--help"')

@@ -55,10 +55,10 @@ def friends(token, user_id):
     return friends
 
 def file_writer_json(friends, file_name, format):
-    jsonFriends = json.dumps(friends)
-    jsonFriends = json.loads(str(jsonFriends))
+    jsonFriends = json.dumps(friends, ensure_ascii = False).encode('utf8')
+    jsonFriends = json.loads(str(jsonFriends.decode()))
     with open(f"{file_name}.{format}", 'w', encoding = 'utf-8') as file:
-        json.dump(jsonFriends, file, indent = 4)
+        json.dump(jsonFriends, file, indent = 4, ensure_ascii = False)
 
 def file_writer_csv(friends, file_name, format):
     with open(f"{file_name}.{format}", 'w') as file:

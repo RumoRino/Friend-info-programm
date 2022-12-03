@@ -122,7 +122,7 @@ try:
 
     if args.file_format == "tsv":
 
-        print('Данный формат фала пока не поддерживается')
+        print('Данный формат фала пока не поддерживается.')
         # file_writer(friend_list, args.file_name, "tsv")
         # print('Отчёт сформирован')
 
